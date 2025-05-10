@@ -4,7 +4,7 @@ Feature: User Authentication
 
 Feature: ITEL Web Application - Core Functionalities
 
-  This feature covers key user flows in the ITEL platform including authentication, test case generation, classification, management, and import/export.
+This feature covers key user flows in the ITEL platform including authentication, test case generation, classification, management, and import/export.
 
 
   Background:
@@ -24,8 +24,8 @@ Feature: ITEL Web Application - Core Functionalities
     And enters valid credentials and submits the "<Email>" and "<Password>" in form
     Then the user should be redirected to the dashboard
     Examples:
-    | Email | Password |
-    | test@test5.com | 123 |
+      | Email          | Password |
+      | test@test5.com | 123      |
 
   Scenario: User login with invalid credentials
     When the user attempts to login with incorrect credentials
