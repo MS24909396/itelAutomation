@@ -24,8 +24,9 @@ public class LoginSteps {
     }
 
     @When("user is in the Home page")
-    public void user_in_thee_home_page() {
+    public void user_in_thee_home_page() throws InterruptedException {
         loginPage.verifyHomePage();
+        Thread.sleep(3000);
 
     }
 
@@ -49,19 +50,22 @@ public class LoginSteps {
     // ----- Signup and Login -----
 
     @When("the user clicks on the Signup button")
-    public void the_user_clicks_on_signup() {
-//        loginPage.clickSignupLink();
+    public void the_user_clicks_on_signup() throws InterruptedException {
+        loginPage.clickSignupLink();
+        Thread.sleep(3000);
     }
 
     @When("enters valid credentials and submits the form")
-    public void enters_valid_credentials_and_submits_the_form() {
-//        loginPage.enterSignupDetails("testuser", "test@example.com", "Password123");
-//        loginPage.submitSignup();
+    public void enters_valid_credentials_and_submits_the_form() throws InterruptedException {
+        loginPage.enterSignupDetails();
+        loginPage.selectRole();
+        loginPage.submitSignup();
     }
 
     @Then("the user should be redirected to the dashboard")
-    public void user_redirected_to_dashboard() {
-//        loginPage.verifyDashboardVisible();
+    public void user_redirected_to_dashboard() throws InterruptedException {
+        loginPage.verifyDashboardVisible();
+        Thread.sleep(3000);
     }
 
     @Then("a welcome message should be shown")
@@ -71,16 +75,20 @@ public class LoginSteps {
 
     @When("the user clicks on the Login button")
     public void the_user_clicks_on_login() {
-//        loginPage.clickLoginLink();
+        loginPage.clickSignupLink();
     }
 
     @When("enters valid email and password")
-    public void enters_valid_login_details() {
-//        loginPage.login("test@example.com", "Password123");
+    public void enters_valid_login_details() throws InterruptedException {
+        Thread.sleep(3000);
+        loginPage.enterloginpDetails();;
+        Thread.sleep(3000);
     }
     @When("the dashboard should be displayed")
-    public void enters_valid_login_adetails() {
-//        loginPage.login("test@example.com", "Password123");
+    public void enters_valid_login_adetails() throws InterruptedException {
+        Thread.sleep(3000);
+        loginPage.verifyDashboardVisible();
+        Thread.sleep(5000);
     }
 
 

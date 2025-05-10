@@ -19,11 +19,11 @@ Feature: ITEL Web Application - Core Functionalities
     When user is in the Home page
 
 
-  Scenario: User signup with valid data
-    When the user clicks on the Signup button
-    And enters valid credentials and submits the form
-    Then the user should be redirected to the dashboard
-    And a welcome message should be shown
+#  Scenario: User signup with valid data #Enter required username and password in the code before execution
+#    When the user clicks on the Signup button
+#    And enters valid credentials and submits the form
+#    Then the user should be redirected to the dashboard
+
 
   Scenario: User login with valid credentials
     When the user clicks on the Login button
