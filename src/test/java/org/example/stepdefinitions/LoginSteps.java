@@ -55,9 +55,9 @@ public class LoginSteps {
         Thread.sleep(3000);
     }
 
-    @When("enters valid credentials and submits the form")
-    public void enters_valid_credentials_and_submits_the_form() throws InterruptedException {
-        loginPage.enterSignupDetails();
+    @When("enters valid credentials and submits the {string} and {string} in form")
+    public void enters_valid_credentials_and_submits_the_form(String string1, String string2) throws InterruptedException {
+        loginPage.enterSignupDetails(string1,string2);
         loginPage.selectRole();
         loginPage.submitSignup();
     }
@@ -80,26 +80,32 @@ public class LoginSteps {
 
     @When("enters valid email and password")
     public void enters_valid_login_details() throws InterruptedException {
-        Thread.sleep(3000);
+        Thread.sleep(2000);
         loginPage.enterloginpDetails();;
-        Thread.sleep(3000);
+        Thread.sleep(2000);
+        loginPage.submitlogin();
+        Thread.sleep(2000);
     }
     @When("the dashboard should be displayed")
     public void enters_valid_login_adetails() throws InterruptedException {
-        Thread.sleep(3000);
         loginPage.verifyDashboardVisible();
-        Thread.sleep(5000);
+        Thread.sleep(4000);
     }
 
 
     @When("the user attempts to login with incorrect credentials")
-    public void user_login_with_invalid_credentials() {
-//        loginPage.login("wrong@example.com", "WrongPassword");
+    public void user_login_with_invalid_credentials() throws InterruptedException {
+        loginPage.clickSignupLink();
+        Thread.sleep(2000);
+        loginPage.enterwrongloginpDetails();;
+        Thread.sleep(2000);
+        loginPage.submitlogin();
+        Thread.sleep(2000);
     }
 
     @Then("an error message should be displayed")
     public void error_message_should_be_displayed() {
-//        loginPage.verifyLoginError();
+        loginPage.verifyLoginError();
     }
 
     // ----- Test Case Generation -----

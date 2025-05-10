@@ -19,20 +19,24 @@ Feature: ITEL Web Application - Core Functionalities
     When user is in the Home page
 
 
-#  Scenario: User signup with valid data #Enter required username and password in the code before execution
-#    When the user clicks on the Signup button
-#    And enters valid credentials and submits the form
-#    Then the user should be redirected to the dashboard
+  Scenario Outline: User signup with valid data
+    When the user clicks on the Signup button
+    And enters valid credentials and submits the "<Email>" and "<Password>" in form
+    Then the user should be redirected to the dashboard
+    Examples:
+    | Email | Password |
+    | test@test5.com | 123 |
 
+  Scenario: User login with invalid credentials
+    When the user attempts to login with incorrect credentials
+    Then an error message should be displayed
 
   Scenario: User login with valid credentials
     When the user clicks on the Login button
     And enters valid email and password
     Then the dashboard should be displayed
 
-  Scenario: User login with invalid credentials
-    When the user attempts to login with incorrect credentials
-    Then an error message should be displayed
+
 
   # --- Test Case Generation ---
 

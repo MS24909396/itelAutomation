@@ -16,6 +16,8 @@ public class LoginPage {
     private final By passwordField = By.id("password");
     private final By loginButton = By.id("login");
     private final By homePageElement = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div/header/h1"); // Example element
+    private final By usernotfoundElement = By.xpath("//*[@id=\"root\"]/div/div/main/div/div[1]/div/div/p");
+    //*[@id="root"]/div/div/main/div/div[1]/div/div/p
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
@@ -44,12 +46,12 @@ public class LoginPage {
 
 
 
-    public void enterSignupDetails() throws InterruptedException {
+    public void enterSignupDetails(String email, String password) throws InterruptedException {
         WebElement emailfield = driver.findElement(By.xpath("//*[@id=\"signup-email\"]"));
-        emailfield.sendKeys("test@test2.com");
+        emailfield.sendKeys(email);
         Thread.sleep(3000);
         WebElement passwordfield = driver.findElement(By.xpath("//*[@id=\"signup-password\"]"));
-        passwordfield.sendKeys("123");
+        passwordfield.sendKeys(password);
     }
 
     public void enterloginpDetails() throws InterruptedException {
@@ -59,6 +61,21 @@ public class LoginPage {
         WebElement passwordfield = driver.findElement(By.xpath("//*[@id=\"signin-password\"]"));
         passwordfield.sendKeys("123");
     }
+
+    public void enterwrongloginpDetails() throws InterruptedException {
+        WebElement emailfield = driver.findElement(By.xpath("//*[@id=\"signin-email\"]"));
+        emailfield.sendKeys("123@123");
+        Thread.sleep(3000);
+        WebElement passwordfield = driver.findElement(By.xpath("//*[@id=\"signin-password\"]"));
+        passwordfield.sendKeys("321");
+    }
+
+
+
+    public void verifyLoginError() {
+        assertTrue(driver.findElement(usernotfoundElement).isDisplayed());
+    }
+
 
     public void selectRole() throws InterruptedException {
         WebElement roledropdown = driver.findElement(By.xpath("//*[@id=\"signup-role\"]"));
@@ -99,6 +116,13 @@ public class LoginPage {
         signupsubmit.click();
         Thread.sleep(3000);
     }
+
+    public void submitlogin() throws InterruptedException {
+        WebElement signinsubmit = driver.findElement(By.xpath("//*[@id=\"root\"]/div/div/main/div/div[1]/div/div/form/button"));
+        signinsubmit.click();
+        Thread.sleep(3000);
+    }
+
 
     public void verifyDashboardVisible() {
         assertTrue(driver.findElement(homePageElement).isDisplayed());
