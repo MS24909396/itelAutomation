@@ -10,7 +10,7 @@ public class LoginPage {
     private final By usernameField = By.id("username");
     private final By passwordField = By.id("password");
     private final By loginButton = By.id("login");
-    private final By homePageElement = By.xpath("/html/body/div[1]/div[3]/form/div[1]/div[1]/div[3]/center/input[1]"); // Example element
+    private final By homePageElement = By.xpath("//*[@id=\"root\"]/div/div/div[2]/div/header/h1"); // Example element
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;

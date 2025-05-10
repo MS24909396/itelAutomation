@@ -19,7 +19,7 @@ public class LoginSteps {
 
     @Given("navigates to the home page")
     public void navigates_to_the_home_page() {
-        driver.get("https://www.google.com/"); // Replace with your real login page URL
+        driver.get("http://localhost:3000/"); // Replace with your real login page URL
 
     }
 
